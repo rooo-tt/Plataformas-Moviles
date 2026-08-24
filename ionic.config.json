@@ -1,0 +1,7 @@
+{
+  "name": "Tankup",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
