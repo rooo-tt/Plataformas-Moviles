@@ -1,9 +1,16 @@
+
 ion-content.home {
-background: -webkit-linear-gradient(90deg, #121211, #1D1C1B, #302D28);
-    background: linear-gradient(90deg, #121211, #1D1C1B, #302D28);
-    min-height: 100vh;
-    margin: 0;                                           
+  --background: linear-gradient(
+    90deg,
+    #121211,
+    #05360b,
+    #0d3e4b
+  );
+
+  min-height: 100vh;
+  margin: 0;
 }
+
 
 .contenedor {
   height: 100%;
