@@ -1,28 +1,57 @@
 <ion-content [fullscreen]="true" class="combustible">
   <div class="pantalla">
 
-    <header>
+    <header class="encabezado">
+      <div class="icono-combustible">
+        <ion-icon name="water"></ion-icon>
+      </div>
+
       <h1>Tipo de combustible</h1>
       <p>¿Qué cargamos hoy?</p>
     </header>
 
     <div class="opciones">
-      <button class="tarjeta super" [class.elegida]="pedido.combustible() === 'Super'" (click)="elegir('Super')">
+
+      <button class="tarjeta super"
+        [class.elegida]="pedido.combustible() === 'Super'"
+        (click)="elegir('Super')">
+
+        <div class="indicador"></div>
         <span class="nombre">NAFTA SUPER</span>
+        <span class="descripcion">Combustible de calidad</span>
+        <ion-icon name="checkmark-circle" class="check"></ion-icon>
       </button>
 
-      <button class="tarjeta infinia" [class.elegida]="pedido.combustible() === 'Infinia'" (click)="elegir('Infinia')">
+      <button class="tarjeta infinia"
+        [class.elegida]="pedido.combustible() === 'Infinia'"
+        (click)="elegir('Infinia')">
+
+        <div class="indicador"></div>
         <span class="nombre">INFINIA</span>
-        <small>LA EVOLUCIÓN DEL COMBUSTIBLE</small>
+        <span class="descripcion">La evolución del combustible</span>
+        <ion-icon name="checkmark-circle" class="check"></ion-icon>
       </button>
 
-      <button class="tarjeta diesel" [class.elegida]="pedido.combustible() === 'Infinia Diesel'" (click)="elegir('Infinia Diesel')">
-        <span class="nombre">INFINIA <em>DIESEL</em></span>
+      <button class="tarjeta diesel"
+        [class.elegida]="pedido.combustible() === 'Infinia Diesel'"
+        (click)="elegir('Infinia Diesel')">
+
+        <div class="indicador"></div>
+        <span class="nombre">INFINIA DIESEL</span>
+        <span class="descripcion">Máximo rendimiento</span>
+        <ion-icon name="checkmark-circle" class="check"></ion-icon>
       </button>
+
     </div>
 
-    <ion-button class="continuar" shape="round" [disabled]="!pedido.combustible()" (click)="continuar()">
+    <ion-button
+      class="continuar"
+      expand="block"
+      shape="round"
+      [disabled]="!pedido.combustible()"
+      (click)="continuar()">
       Continuar
+      <ion-icon name="arrow-forward" slot="end"></ion-icon>
     </ion-button>
 
   </div>

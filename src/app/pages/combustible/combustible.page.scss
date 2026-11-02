@@ -1,57 +1,150 @@
 ion-content.combustible {
-  --background: #4f8db5;
+  --background: linear-gradient(160deg, #17243b 0%, #243b55 55%, #315b75 100%);
 }
 
 .pantalla {
   min-height: 100%;
+  padding: 45px 24px 30px;
   display: flex;
   flex-direction: column;
-  padding: 24px 16px 16px;
+  justify-content: center;
+  max-width: 500px;
+  margin: auto;
 }
 
-header {
-  h1 { margin: 0; font-size: 24px; font-weight: 500; color: #1d2b4a; }
-  p { margin: 4px 0 0; font-size: 12px; color: #1d2b4a; }
+.encabezado {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.icono-combustible {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  ion-icon {
+    font-size: 36px;
+    color: #ffffff;
+  }
+}
+
+.encabezado h1 {
+  color: white;
+  font-size: 29px;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.encabezado p {
+  color: #c5d3df;
+  font-size: 15px;
+  margin: 0;
 }
 
 .opciones {
-  margin: 56px 0 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 17px;
+  margin-bottom: 35px;
 }
 
 .tarjeta {
-  height: 78px;
-  border: 3px solid transparent;
-  border-radius: 14px;
+  position: relative;
+  width: 100%;
+  min-height: 110px;
+  padding: 23px 25px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  transition: 0.25s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
 
-  .nombre { font-size: 22px; font-weight: 800; letter-spacing: 1px; }
-  small { font-size: 8px; letter-spacing: 1px; }
-  em { font-style: normal; color: #d7e22a; }
+.tarjeta:active {
+  transform: scale(0.97);
+}
 
-  &.super { background: linear-gradient(135deg, #000 60%, #0b3a5e); }
-  &.infinia { background: linear-gradient(135deg, #111, #333); }
-  &.diesel { background: linear-gradient(135deg, #000 40%, #0c6b2a); }
+.indicador {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+}
 
-  &.elegida { border-color: #fff; box-shadow: 0 0 0 3px #1d2b4a; }
+.super .indicador {
+  background: #e6a12c;
+}
+
+.infinia .indicador {
+  background: #2389d1;
+}
+
+.diesel .indicador {
+  background: #299d68;
+}
+
+.nombre {
+  color: #24344a;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.descripcion {
+  color: #8290a0;
+  font-size: 12px;
+  margin-top: 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.check {
+  position: absolute;
+  right: 22px;
+  font-size: 27px;
+  color: #1d9c69;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.tarjeta.elegida {
+  border-color: #39c58a;
+  background: #f2fff9;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta.elegida .check {
+  opacity: 1;
 }
 
 .continuar {
-  margin: auto auto 0;
-  width: 200px;
-  --background: #fff;
-  --color: #000;
-  --border-radius: 999px;
-  --border-color: #000;
-  --border-width: 3px;
-  --border-style: solid;
+  --background: #35b982;
+  --background-activated: #269968;
+  --color: white;
+  --border-radius: 16px;
+  height: 55px;
+  font-size: 16px;
   font-weight: 700;
-  font-size: 18px;
+  letter-spacing: 0.5px;
+  margin: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.continuar[disabled] {
+  --background: #667887;
+  opacity: 0.6;
 }
