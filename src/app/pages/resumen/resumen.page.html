@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true" class="resumen">
+  <div class="pantalla">
+
+    <div class="titulo">Resumen</div>
+
+    <div class="total">
+      <strong>{{ formatoPesos(pedido.total()) }}</strong>
+      <span>Total a pagar</span>
+    </div>
+
+    <ul class="detalle">
+      <li>Estación: {{ pedido.estacion() }}</li>
+      <li>Surtidor: {{ pedido.surtidor() }}</li>
+      <li>Nafta: {{ pedido.combustible() }}</li>
+      <li>Litros: {{ formatoLitros(pedido.litros()) }}</li>
+    </ul>
+
+    <p class="aviso">Al confirmar, acercarse al surtidor</p>
+
+    <button class="pagar" (click)="confirmar()">Confirmar y pagar</button>
+
+  </div>
+</ion-content>

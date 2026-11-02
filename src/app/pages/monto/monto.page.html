@@ -1,0 +1,39 @@
+<ion-content [fullscreen]="true" class="monto">
+  <div class="pantalla">
+
+    <header>
+      <h1>¿Cuánto cargás?</h1>
+      <p class="combustible">Nafta {{ pedido.combustible() }}</p>
+    </header>
+
+    <ion-segment [value]="pedido.modo()" (ionChange)="cambiarModo($event)">
+      <ion-segment-button value="pesos"><ion-label>Pesos</ion-label></ion-segment-button>
+      <ion-segment-button value="litros"><ion-label>Litros</ion-label></ion-segment-button>
+    </ion-segment>
+
+    <div class="atajos">
+      @for (n of atajos(); track n) {
+        <button class="atajo" [class.elegido]="pedido.valor() === n" (click)="elegir(n)">
+          {{ formatear(n) }}
+        </button>
+      }
+    </div>
+
+    <div class="personalizado">
+      <span>{{ pedido.modo() === 'pesos' ? '$' : 'L' }}</span>
+      <input
+        type="number"
+        inputmode="decimal"
+        min="0"
+        placeholder="Otro monto"
+        [value]="pedido.valor() || ''"
+        (input)="escribir($event)"
+      />
+    </div>
+
+    <ion-button class="confirmar" shape="round" [disabled]="pedido.valor() <= 0" (click)="confirmar()">
+      Confirmar
+    </ion-button>
+
+  </div>
+</ion-content>

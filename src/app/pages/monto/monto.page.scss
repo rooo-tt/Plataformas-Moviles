@@ -1,0 +1,87 @@
+ion-content.monto {
+  --background: #8a9be6;
+}
+
+.pantalla {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px 16px;
+}
+
+header {
+  h1 { margin: 0; font-size: 22px; font-weight: 500; color: #1d2b4a; }
+  .combustible { margin: 6px 0 0; font-size: 14px; font-weight: 700; color: #2a2a8a; }
+}
+
+ion-segment {
+  margin-top: 24px;
+  --background: #e0e0e0;
+  border: 2px solid #222;
+  border-radius: 0;
+  padding: 4px;
+
+  ion-segment-button {
+    --indicator-color: #3a3a9a;
+    --color: #333;
+    --color-checked: #fff;
+    font-weight: 700;
+    min-height: 32px;
+  }
+}
+
+.atajos {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+
+  .atajo {
+    height: 66px;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background: #e2e2e2;
+    font-size: 22px;
+    font-weight: 800;
+    color: #222;
+
+    &.elegido {
+      background: #6a1fa3;
+      color: #fff;
+      border-color: #000;
+    }
+  }
+}
+
+.personalizado {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: #e2e2e2;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 700;
+
+  input {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    font-size: 20px;
+    outline: none;
+  }
+}
+
+.confirmar {
+  margin: auto auto 0;
+  width: 200px;
+  --background: #000;
+  --color: #fff;
+  --border-radius: 999px;
+  --border-color: #fff;
+  --border-width: 3px;
+  --border-style: solid;
+  font-weight: 700;
+  font-size: 18px;
+}

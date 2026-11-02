@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true" class="combustible">
+  <div class="pantalla">
+
+    <header>
+      <h1>Tipo de combustible</h1>
+      <p>¿Qué cargamos hoy?</p>
+    </header>
+
+    <div class="opciones">
+      <button class="tarjeta super" [class.elegida]="pedido.combustible() === 'Super'" (click)="elegir('Super')">
+        <span class="nombre">NAFTA SUPER</span>
+      </button>
+
+      <button class="tarjeta infinia" [class.elegida]="pedido.combustible() === 'Infinia'" (click)="elegir('Infinia')">
+        <span class="nombre">INFINIA</span>
+        <small>LA EVOLUCIÓN DEL COMBUSTIBLE</small>
+      </button>
+
+      <button class="tarjeta diesel" [class.elegida]="pedido.combustible() === 'Infinia Diesel'" (click)="elegir('Infinia Diesel')">
+        <span class="nombre">INFINIA <em>DIESEL</em></span>
+      </button>
+    </div>
+
+    <ion-button class="continuar" shape="round" [disabled]="!pedido.combustible()" (click)="continuar()">
+      Continuar
+    </ion-button>
+
+  </div>
+</ion-content>

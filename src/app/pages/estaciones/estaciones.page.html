@@ -1,0 +1,135 @@
+<ion-content [fullscreen]="true" class="estaciones">
+
+  <!-- encabezado -->
+  <header class="hero">
+
+    <button class="back" (click)="volver()" aria-label="Volver">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+
+    <div class="logo-caja">
+      <<img
+        src="assets/Logotipo TankUp con surtidor estilizado.png"
+        alt="TankUp"
+        class="banner"
+      />
+    </div>
+
+    <h1>TankUp</h1>
+    <p class="bienvenida">Tu próxima parada, más fácil.</p>
+
+    <div class="chips">
+      <span class="chip">
+        <ion-icon name="calendar-outline"></ion-icon>
+        Estaciones cercanas
+      </span>
+
+      <span class="chip">
+        <ion-icon name="walk-outline"></ion-icon>
+        12 min
+      </span>
+    </div>
+
+  </header>
+
+  <!-- contenido principal -->
+  <main class="lista">
+
+    <div class="titulo-seccion">
+      <span class="etiqueta">ENCONTRÁ TU ESTACIÓN</span>
+
+      <h2>Estaciones de servicio</h2>
+
+      <p class="sub">Elegí dónde querés cargar combustible.</p>
+    </div>
+
+    <!-- filtros -->
+    <ion-segment value="cercanas" class="filtros">
+
+      <ion-segment-button value="cercanas">
+        <ion-label>Cercanas</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="favoritas">
+        <ion-label>Favoritas</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+
+    <!-- listado de estaciones -->
+    <div class="estaciones-lista">
+
+      @for (e of estaciones; track e.nombre) {
+
+        <article
+          class="item"
+          (click)="elegir(e.nombre)"
+        >
+
+          <div class="icono">
+            <ion-icon name="storefront-outline"></ion-icon>
+          </div>
+
+          <div class="info">
+
+            <div class="fila">
+              <strong>{{ e.nombre }}</strong>
+
+              <button
+                class="boton-fav"
+                [class.activo]="favoritas.has(e.nombre)"
+                (click)="toggleFav(e.nombre, $event)"
+                [attr.aria-label]="favoritas.has(e.nombre)
+                  ? 'Quitar de favoritos'
+                  : 'Agregar a favoritos'"
+              >
+                <ion-icon name="heart"></ion-icon>
+              </button>
+            </div>
+
+            <small>{{ e.categoria }}</small>
+
+            <div class="detalles">
+
+              <span class="distancia">
+                <ion-icon name="walk-outline"></ion-icon>
+                {{ e.distancia }}
+              </span>
+
+              <span class="estrellas" aria-label="5 estrellas">
+                @for (i of [1,2,3,4,5]; track i) {
+                  <ion-icon name="star"></ion-icon>
+                }
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+  </main>
+
+  <!-- botón inferior -->
+  <footer class="acciones">
+
+    <ion-button
+      expand="block"
+      shape="round"
+      routerLink="/surtidores"
+      class="boton-continuar"
+    >
+      Continuar
+    </ion-button>
+
+    <p class="texto-inferior">
+      Encontrá tu estación y seguí tu camino.
+    </p>
+
+  </footer>
+
+</ion-content>

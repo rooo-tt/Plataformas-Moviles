@@ -1,0 +1,180 @@
+<ion-content [fullscreen]="true" class="surtidores">
+
+  <div class="pantalla">
+
+    <!-- encabezado -->
+    <header class="encabezado">
+
+      <div class="encabezado-superior">
+        <button
+          class="volver"
+          routerLink="/estaciones"
+          aria-label="Volver a estaciones"
+        >
+        <ion-icon name="arrow-back"></ion-icon>
+        </button>
+
+        <span class="paso">PASO 2 DE 4</span>
+      </div>
+
+      <span class="etiqueta">TANKUP · CARGA DE COMBUSTIBLE</span>
+
+      <h1>Elegí tu surtidor</h1>
+
+      <p>Seleccioná uno de los surtidores disponibles para continuar.</p>
+
+    </header>
+
+    <!-- disponibilidad -->
+    <section class="panel-disponibilidad">
+
+      <div class="titulo-disponibilidad">
+        <span class="punto"></span>
+        <strong>Disponibilidad</strong>
+      </div>
+
+      <div class="leyenda">
+
+        <div>
+          <span class="cuadro verde"></span>
+          Disponible
+        </div>
+
+        <div>
+          <span class="cuadro rojo"></span>
+          Ocupado
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- isla de surtidores -->
+    <section class="zona-isla">
+
+      <div class="titulo-isla">
+        <div>
+          <span class="etiqueta">ESTACIÓN DE SERVICIO</span>
+          <h2>Isla de surtidores</h2>
+        </div>
+
+        <span class="contador">
+          {{ surtidores.length }} puestos
+        </span>
+      </div>
+
+      <div class="isla">
+
+        @for (s of surtidores; track s.numero) {
+
+          <div class="celda">
+
+            <button
+              class="surtidor"
+              [class.libre]="s.disponible"
+              [class.ocupado]="!s.disponible"
+              [class.elegido]="pedido.surtidor() === s.numero"
+              [disabled]="!s.disponible"
+              (click)="elegir(s)"
+              [attr.aria-label]="'Surtidor ' + s.numero +
+                (s.disponible ? ', disponible' : ', ocupado')"
+              [attr.aria-pressed]="pedido.surtidor() === s.numero"
+            >
+
+              <span class="estado">
+                <span class="estado-punto"></span>
+                {{ s.disponible ? 'Libre' : 'Ocupado' }}
+              </span>
+
+              <svg
+                viewBox="0 0 64 64"
+                width="64"
+                height="64"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 8h26a4 4 0 0 1 4 4v44H8V12a4 4 0 0 1 4-4z"
+                  fill="#202820"
+                />
+
+                <rect
+                  x="14"
+                  y="14"
+                  width="22"
+                  height="14"
+                  rx="2"
+                  fill="#b9e96d"
+                />
+
+                <path
+                  d="M42 22h6a6 6 0 0 1 6 6v18a3 3 0 0 0 6 0V26l-6-8"
+                  fill="none"
+                  stroke="#202820"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                />
+
+                <rect
+                  x="4"
+                  y="56"
+                  width="42"
+                  height="4"
+                  fill="#202820"
+                />
+              </svg>
+
+              <span class="texto-surtidor">
+                Surtidor {{ s.numero }}
+              </span>
+
+              @if (pedido.surtidor() === s.numero) {
+                <span class="marca-seleccion">
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                  Seleccionado
+                </span>
+              }
+
+            </button>
+
+          </div>
+
+        }
+
+      </div>
+
+      @if (pedido.surtidor() !== null) {
+        <div class="seleccion-info">
+          <ion-icon name="checkmark-circle"></ion-icon>
+          Elegiste el surtidor {{ pedido.surtidor() }}
+        </div>
+      } @else {
+        <p class="ayuda-seleccion">
+          Tocá un surtidor verde para seleccionarlo.
+        </p>
+      }
+
+    </section>
+
+    <!-- acción inferior -->
+    <footer class="acciones">
+
+      <ion-button
+        expand="block"
+        shape="round"
+        class="continuar"
+        routerLink="/combustible"
+        [disabled]="pedido.surtidor() === null"
+      >
+        Continuar
+        <ion-icon name="arrow-forward" slot="end"></ion-icon>
+      </ion-button>
+
+      <p class="texto-inferior">
+        Seleccioná un surtidor disponible para avanzar.
+      </p>
+
+    </footer>
+
+  </div>
+
+</ion-content>
