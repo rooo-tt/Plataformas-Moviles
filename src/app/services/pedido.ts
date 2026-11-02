@@ -5,9 +5,9 @@ export type Modo = 'pesos' | 'litros';
 
 // Precios por litro de ejemplo: cambialos por los reales o traelos de tu API
 export const PRECIOS: Record<Combustible, number> = {
-  'Super': 2000,
-  'Infinia': 2300,
-  'Infinia Diesel': 2200,
+  'Super': 1900,
+  'Infinia': 2100,
+  'Infinia Diesel': 2300,
 };
 
 @Injectable({ providedIn: 'root' })
