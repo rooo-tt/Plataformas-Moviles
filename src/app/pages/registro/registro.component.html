@@ -1,3 +1,95 @@
-<p>
-  registro works!
-</p>
+<ion-content [fullscreen]="true" class="registro">
+
+  <div class="pantalla">
+
+    <header class="encabezado">
+
+      <div class="logo">
+        <img src="assets/logo-tankup.png" alt="Logo TankUp">
+      </div>
+
+      <h1>Crear cuenta</h1>
+      <p>¡Bienvenido a TankUp!</p>
+      <span>Registrate para comenzar a disfrutar de nuestros servicios.</span>
+
+    </header>
+
+    <form class="formulario">
+
+      <div class="campo">
+        <label for="nombre">Nombre completo</label>
+        <input
+          id="nombre"
+          type="text"
+          placeholder="Ingresá tu nombre"
+          autocomplete="name"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="email">Correo electrónico</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="ejemplo@correo.com"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="telefono">Teléfono</label>
+        <input
+          id="telefono"
+          type="tel"
+          placeholder="Ingresá tu teléfono"
+          autocomplete="tel"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="password">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Creá una contraseña"
+          autocomplete="new-password"
+          required
+          minlength="8"
+        >
+        <small>Mínimo 8 caracteres.</small>
+      </div>
+
+      <div class="campo">
+        <label for="confirmar">Confirmar contraseña</label>
+        <input
+          id="confirmar"
+          type="password"
+          placeholder="Repetí tu contraseña"
+          autocomplete="new-password"
+          required
+          minlength="8"
+        >
+      </div>
+
+      <ion-button
+        type="submit"
+        expand="block"
+        shape="round"
+        class="boton-registro"
+      >
+        Crear cuenta
+      </ion-button>
+
+    </form>
+
+    <div class="iniciar-sesion">
+      <p>¿Ya tenés una cuenta?</p>
+      <a routerLink="/login">Iniciá sesión</a>
+    </div>
+
+  </div>
+
+</ion-content>
