@@ -1,87 +1,152 @@
+
 ion-content.monto {
-  --background: #8a9be6;
+  --background: #10130d;
 }
 
 .pantalla {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 24px 16px 16px;
+  padding: 36px 22px 24px;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #e7ebdd;
 }
 
+/* ENCABEZADO */
+
 header {
-  h1 { margin: 0; font-size: 22px; font-weight: 500; color: #1d2b4a; }
-  .combustible { margin: 6px 0 0; font-size: 14px; font-weight: 700; color: #2a2a8a; }
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    color: #e7ebdd;
+  }
+
+  .combustible {
+    display: inline-block;
+    margin: 12px 0 0;
+    padding: 7px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #a5c66b;
+    background: #243611;
+    border: 1px solid #394d24;
+    border-radius: 20px;
+  }
 }
+
+/* SELECTOR PESOS / LITROS */
 
 ion-segment {
   margin-top: 24px;
-  --background: #e0e0e0;
-  border: 2px solid #222;
-  border-radius: 0;
-  padding: 4px;
+  padding: 5px;
+  --background: #1b2115;
+  border: 1px solid #394d24;
+  border-radius: 16px;
 
   ion-segment-button {
-    --indicator-color: #3a3a9a;
-    --color: #333;
-    --color-checked: #fff;
+    --indicator-color: #243611;
+    --color: #9ba58c;
+    --color-checked: #a5c66b;
+    --border-radius: 12px;
+    min-height: 44px;
+    font-size: 15px;
     font-weight: 700;
-    min-height: 32px;
+    text-transform: none;
   }
 }
+
+/* MONTOS PREDEFINIDOS */
 
 .atajos {
-  margin-top: 48px;
+  margin-top: 32px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 14px;
 
   .atajo {
-    height: 66px;
-    border-radius: 10px;
-    border: 3px solid transparent;
-    background: #e2e2e2;
-    font-size: 22px;
+    height: 76px;
+    border-radius: 18px;
+    border: 1px solid #394d24;
+    background: #1b2115;
+    box-shadow: 0 5px 14px #00000030;
+    font-size: 23px;
     font-weight: 800;
-    color: #222;
+    color: #e7ebdd;
+    transition: 0.2s ease;
+  }
 
-    &.elegido {
-      background: #6a1fa3;
-      color: #fff;
-      border-color: #000;
-    }
+  .atajo.elegido {
+    background: #243611;
+    color: #a5c66b;
+    border: 2px solid #a5c66b;
+    box-shadow: 0 7px 18px #24361180;
+    transform: scale(1.02);
   }
 }
 
+/* MONTO PERSONALIZADO */
+
 .personalizado {
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background: #e2e2e2;
-  border-radius: 12px;
-  font-size: 20px;
-  font-weight: 700;
+  gap: 12px;
+  padding: 15px 18px;
+  background: #1b2115;
+  border: 1px solid #394d24;
+  border-radius: 18px;
+  box-shadow: 0 5px 15px #00000030;
+  font-size: 22px;
+  font-weight: 800;
+  color: #a5c66b;
 
   input {
     flex: 1;
+    min-width: 0;
     border: 0;
     background: transparent;
     font-size: 20px;
+    font-weight: 600;
+    color: #e7ebdd;
     outline: none;
+  }
+
+  input::placeholder {
+    color: #737c65;
+    font-weight: 500;
   }
 }
 
+/* BOTÓN CONFIRMAR */
+
 .confirmar {
   margin: auto auto 0;
-  width: 200px;
-  --background: #000;
-  --color: #fff;
-  --border-radius: 999px;
-  --border-color: #fff;
-  --border-width: 3px;
-  --border-style: solid;
-  font-weight: 700;
-  font-size: 18px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 320px;
+  min-height: 54px;
+
+  --background: #243611;
+  --background-activated: #17220b;
+  --background-hover: #394d24;
+  --color: #a5c66b;
+  --border-radius: 18px;
+  --border-width: 1px;
+  --border-color: #536b34;
+  --box-shadow: 0 8px 20px #00000050;
+
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+/* BOTÓN DESHABILITADO */
+
+.confirmar[disabled] {
+  opacity: 0.4;
+  --box-shadow: none;
 }
